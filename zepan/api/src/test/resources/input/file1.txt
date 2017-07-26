@@ -1,0 +1,40 @@
+# Root logger option
+log4j.rootLogger=WARN, stdout
+ 
+# Direct log messages to stdout
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target=System.out
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c{1}:%L - %m%n
+
+log4j.appender.req=org.apache.log4j.RollingFileAppender
+log4j.appender.req.File=${catalina.home}/logs/request.log
+log4j.appender.req.MaxFileSize=10MB
+log4j.appender.req.MaxBackupIndex=10
+log4j.appender.req.layout=org.apache.log4j.PatternLayout
+log4j.appender.req.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c{1}:%L - %m%n
+
+log4j.appender.time=org.apache.log4j.RollingFileAppender
+log4j.appender.time.File=${catalina.home}/logs/time.log
+log4j.appender.time.MaxFileSize=10MB
+log4j.appender.time.MaxBackupIndex=10
+log4j.appender.time.layout=org.apache.log4j.PatternLayout
+log4j.appender.time.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c{1}:%L - %m%n
+
+log4j.appender.mapping=org.apache.log4j.RollingFileAppender
+log4j.appender.mapping.File=${catalina.home}/logs/mapping.log
+log4j.appender.mapping.MaxFileSize=10MB
+log4j.appender.mapping.MaxBackupIndex=10
+log4j.appender.mapping.layout=org.apache.log4j.PatternLayout
+log4j.appender.mapping.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c{1}:%L - %m%n
+
+
+log4j.logger.CDR.LOG.MAPPING=DEBUG, mapping
+log4j.additivity.CDR.LOG.MAPPING=false
+
+log4j.logger.com.mede=INFO
+log4j.logger.CDR.LOG=DEBUG, req
+log4j.additivity.CDR.LOG=false
+
+log4j.logger.CDR.LOG.TIMING=DEBUG, time
+log4j.additivity.CDR.LOG.TIMING=false
